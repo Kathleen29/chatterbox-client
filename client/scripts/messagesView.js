@@ -9,19 +9,14 @@ var MessagesView = {
   render: function(messages) {
     // appends message to $chats
     _.each(messages, function(message, key) {
-      MessageView.render({username: messages.username, text: messages.text});
+      MessagesView.renderMessage({username: message.username, text: message.text});
     //$($chats).html('Message.text')
     });
   },
 
   renderMessage: function(object) {
     // appends message to $chats
-    MessagesView.$chats.prepend((MessagesView.render(object)));
+    MessagesView.$chats.append((MessageView.render(object)));
   }
 
 };
-// render: function(messages) {
-//   _.each(messages, function(message) {
-//     MessagesView.renderMessage({username: message.username, text: message.text});
-//   });
-// },

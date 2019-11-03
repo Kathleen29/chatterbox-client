@@ -8,17 +8,22 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    event.preventDefault();
+    //event.preventDefault();
     // var newMessage = Messages;
    var newMessage = {
     username: App.username,
     text: $('#message').val(),
-    roomname: 'Home'
+    roomname: 'lobby'
    }
-    Parse.create(newMessage, () => {
+    debugger;
+
+
+    Parse.create((newMessage), () => {
       console.log('Yay!!!!!');
+      debugger;
       MessagesView.renderMessage(newMessage);
-  });
+    });
+
   },
 
   setStatus: function(active) {
